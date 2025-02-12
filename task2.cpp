@@ -1,9 +1,9 @@
 #include <iostream>
 
-void printPascalsTriangle(int n) {
-    int triangle[100][100];  
-
+void print_pascals_triangle(int n) {
+    int** triangle = new int*[n];  
     for (int i = 0; i < n; i++) {
+        triangle[i] = new int[i + 1];
         triangle[i][0] = 1;  
         triangle[i][i] = 1;  
     }
@@ -20,14 +20,19 @@ void printPascalsTriangle(int n) {
         }
         std::cout << std::endl;
     }
+
+    for (int i = 0; i < n; i++) {
+        delete[] triangle[i];
+    }
+    delete[] triangle;
 }
 
 int main() {
     int n;
-    std::cout << "Введіть кількість рядків трикутника Паскаля: ";
+    std::cout << "Enter number of rows for Pascal's Triangle: ";
     std::cin >> n;
 
-    printPascalsTriangle(n);
+    print_pascals_triangle(n);
 
     return 0;
 }

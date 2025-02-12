@@ -18,10 +18,10 @@ void prime_pairs(int n) {
 
 int main() {
     int n;
-    std::cout << "Введіть число n: ";
+    std::cout << "Put number n: ";
     std::cin >> n;
 
-    std::cout << "Пари простих чисел між " << n << " і " << 2 * n << ", різниця між якими дорівнює 2:\n";
+    std::cout << "pairs of prime numbers between " << n << " і " << 2 * n << ", the difference between which is equal to 2:\n";
     prime_pairs(n);
 
     return 0;

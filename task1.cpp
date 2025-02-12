@@ -2,10 +2,10 @@
 
 int main() {
     int n;
-    std::cout << "Введіть значення n: ";
+    std::cout << "Put your number n: ";
     std::cin >> n;
 
-    std::cout << "Піфагорові трійки для n = " << n << ":\n";
+    std::cout << "Pythagorian triaple for n = " << n << ":\n";
     
     for (int a = 1; a <= n; a++) {
         for (int b = a; b <= n; b++) {  

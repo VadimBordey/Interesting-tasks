@@ -1,50 +1,48 @@
 #include <iostream>
-#include <string>
 
-std::string ones[] = { "", "один", "два", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять",
-                  "десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п'ятнадцять",
-                  "шістнадцять", "сімнадцять", "вісімнадцять", "дев'ятнадцять" };
+const char* ones[] = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+                      "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+                      "sixteen", "seventeen", "eighteen", "nineteen" };
 
-std::string tens[] = { "", "", "двадцять", "тридцять", "сорок", "п'ятдесят", "шістдесят", "сімдесят",
-                  "вісімдесят", "дев'яносто" };
+const char* tens[] = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy",
+                      "eighty", "ninety" };
 
-std::string hundreds[] = { "", "сто", "двісті", "триста", "чотириста", "п'ятсот", "шістсот", "сімсот",
-                      "вісімсот", "дев'ятсот" };
+const char* hundreds[] = { "", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred",
+                          "eight hundred", "nine hundred" };
 
-std::string convert(int n) {
-	if (n == 1000) {
-		return "тисяча";
-	}
+void convert(int n) {
+    if (n == 1000) {
+        std::cout << "one thousand";
+        return;
+    }
 
-	std::string result = "";
-	if (n >= 100) {
-        result += hundreds[n / 100];
+    if (n >= 100) {
+        std::cout << hundreds[n / 100];
         n %= 100;
-        if (n > 0) result += " ";
+        if (n > 0) std::cout << " ";
     }
 
     if (n >= 20) {
-        result += tens[n / 10];
+        std::cout << tens[n / 10];
         n %= 10;
-        if (n > 0) result += " ";
+        if (n > 0) std::cout << " ";
     }
 
     if (n > 0) {
-        result += ones[n];
+        std::cout << ones[n];
     }
-
-    return result;
 }
 
 int main() {
     int n;
-    std::cout << "Введіть число (від 1 до 1000): ";
+    std::cout << "Enter a number (1 to 1000): ";
     std::cin >> n;
 
     if (n < 1 || n > 1000) {
-        std::cout << "Число має бути від 1 до 1000." << std::endl;
+        std::cout << "Number must be between 1 and 1000." << std::endl;
     } else {
-        std::cout << convert(n) << std::endl;
+        convert(n);
+        std::cout << std::endl;
     }
 
     return 0;
