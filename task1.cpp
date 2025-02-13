@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 int main() {
     int n;
@@ -9,13 +10,12 @@ int main() {
     
     for (int a = 1; a <= n; a++) {
         for (int b = a; b <= n; b++) {  
-            for (int c = b; c <= n; c++) { 
+            int c = std::sqrt(a * a + b * b); 
                 if (a * a + b * b == c * c) {  
                     std::cout << a << ", " << b << ", " << c << "\n";
                 }
             }
         }
-    }
 
     return 0;
-}
+    }
